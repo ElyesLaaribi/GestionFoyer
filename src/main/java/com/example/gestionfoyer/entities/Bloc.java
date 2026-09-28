@@ -1,9 +1,17 @@
 package com.example.gestionfoyer.entities;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.*;
 
+@Entity
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class Bloc {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
