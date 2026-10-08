@@ -18,4 +18,7 @@ public class Foyer {
 
     @OneToOne(mappedBy = "foyer")
     private Universite universite;
+
+    @ManyToOne
+    private Bloc bloc;
 }

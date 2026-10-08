@@ -19,4 +19,11 @@ public class Bloc {
     private String nomBloc;
     private long capaciteBloc;
 
+
+    @OnetoMany(cascade = CascadeType.ALL, mappedBy="bloc")
+    private Set<Bloc> Bloc;
+
+    @ManyToOne
+    Chambre chambre;
+
 }

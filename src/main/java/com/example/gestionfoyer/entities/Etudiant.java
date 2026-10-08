@@ -24,4 +24,7 @@ public class Etudiant {
     private String ecole;
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date dateNaissance;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Set<Reservation> Reservations;
 }

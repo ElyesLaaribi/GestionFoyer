@@ -18,5 +18,8 @@ public class Chambre {
 
     @Enumerated(EnumType.STRING)
     private TypeChambre typeC;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="chambre")
+    private Set<Bloc> Bloc;
 }
 
