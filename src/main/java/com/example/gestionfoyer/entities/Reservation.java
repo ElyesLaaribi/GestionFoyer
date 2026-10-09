@@ -1,27 +1,25 @@
 package com.example.gestionfoyer.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
 @Entity
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Reservation {
+public class Reservation implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String idReservation;
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date anneeUniversitaire;
+    private String anneeUniversitaire;
     private boolean estValide;
 
-    @ManyToMany(mappedBy="reservations", cascade = CascadeType.ALL)
-    private Set<Etudiant> etudiants;
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<Etudiant> etudiants;
 }

@@ -3,13 +3,16 @@ package com.example.gestionfoyer.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.io.Serializable;
+import java.util.List;
+
 @Entity
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Foyer {
+public class Foyer implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idFoyer;
@@ -19,6 +22,7 @@ public class Foyer {
     @OneToOne(mappedBy = "foyer")
     private Universite universite;
 
-    @ManyToOne
-    private Bloc bloc;
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "foyer")
+    private List<Foyer> foyers;
+
 }

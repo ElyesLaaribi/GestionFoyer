@@ -1,20 +1,20 @@
 package com.example.gestionfoyer.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
 @Entity
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Etudiant {
+public class Etudiant implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idEtudiant;
@@ -25,6 +25,6 @@ public class Etudiant {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date dateNaissance;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    private Set<Reservation> Reservations;
+    @ManyToMany(mappedBy="etudiants",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Reservation> reservations;
 }

@@ -3,13 +3,15 @@ package com.example.gestionfoyer.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.io.Serializable;
+
 @Entity
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Universite {
+public class Universite implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idUniversite;
@@ -18,4 +20,6 @@ public class Universite {
 
     @OneToOne
     private Foyer foyer;
+
+
 }
