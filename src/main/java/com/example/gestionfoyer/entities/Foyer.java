@@ -22,7 +22,7 @@ public class Foyer implements Serializable {
     @OneToOne(mappedBy = "foyer")
     private Universite universite;
 
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "foyer")
-    private List<Foyer> foyers;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "foyer")
+    private List<Bloc> blocs;
 
 }

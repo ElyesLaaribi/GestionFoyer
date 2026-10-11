@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-//@ToString<>
+@ToString
 public class Bloc implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +22,7 @@ public class Bloc implements Serializable {
     @ManyToOne
     private Foyer foyer;
 
-    @OneToOne(mappedBy="bloc", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy="bloc", cascade = CascadeType.ALL)
     private List<Chambre> chambres;
 
 
