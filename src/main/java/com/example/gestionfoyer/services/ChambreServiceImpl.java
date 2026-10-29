@@ -1,7 +1,6 @@
 package com.example.gestionfoyer.services;
 
 import com.example.gestionfoyer.entities.Chambre;
-import com.example.gestionfoyer.entities.Etudiant;
 import com.example.gestionfoyer.repositories.ChambreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +14,7 @@ public class ChambreServiceImpl implements IChambreService{
     private ChambreRepository chambreRepository;
 
     public Chambre save(Chambre chambre) {
+
         return chambreRepository.save(chambre);
     }
 
@@ -40,6 +40,7 @@ public class ChambreServiceImpl implements IChambreService{
 
     @Override
     public Chambre modifyChambre(Chambre chambre) {
+
         return chambreRepository.save(chambre);
     }
 }
