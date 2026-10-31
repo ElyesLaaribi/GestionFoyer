@@ -5,12 +5,12 @@ import com.example.gestionfoyer.entities.Foyer;
 import com.example.gestionfoyer.services.IFoyerService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+
 @RestController @AllArgsConstructor
 @RequestMapping("/foyer")
 public class FoyerRestController {
@@ -31,9 +31,8 @@ public class FoyerRestController {
     }
 
     @PostMapping("/add-foyer")
-    public Foyer addFoyer(@RequestBody Foyer f){
-        Foyer foyer = foyerService.addFoyer(f);
-        return foyer;
+    public Foyer addFoyer(@RequestBody Foyer f) {
+        return foyerService.addFoyer(f);
     }
 
     @DeleteMapping("/remove-foyer/{foyer-id}")

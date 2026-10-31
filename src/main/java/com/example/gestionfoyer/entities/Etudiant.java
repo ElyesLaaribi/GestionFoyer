@@ -17,10 +17,10 @@ import java.util.List;
 public class Etudiant implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idEtudiant;
+    private Long idEtudiant;
     private String nomEt;
     private String prenomEt;
-    private long cin;
+    private Long cin;
     private String ecole;
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date dateNaissance;
