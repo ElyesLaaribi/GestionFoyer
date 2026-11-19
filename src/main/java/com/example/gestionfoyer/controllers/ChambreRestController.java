@@ -2,6 +2,8 @@ package com.example.gestionfoyer.controllers;
 
 import com.example.gestionfoyer.entities.Chambre;
 import com.example.gestionfoyer.services.IChambreService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.CachedIntrospectionResults;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +12,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
-@RestController @AllArgsConstructor
+@Tag(name = "Gestion Chambre")
+@RestController
+@AllArgsConstructor
 @RequestMapping("/chambre")
 public class ChambreRestController {
 
@@ -26,6 +29,8 @@ public class ChambreRestController {
     }
 
     // retrieve chambre by ID
+    //http://localhost:8089/Gestionfoyer/chambre/retrieve-all-chambres
+    @Operation(description = "récupérer toutes les chambres de la base de données")
     @GetMapping("/retrieve-chambre/{chambre-id}")
     public Chambre retrieveChambre(@PathVariable("chambre-id") Long chId)
     {

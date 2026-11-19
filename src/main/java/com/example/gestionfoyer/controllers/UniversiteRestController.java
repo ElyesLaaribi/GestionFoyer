@@ -1,6 +1,5 @@
 package com.example.gestionfoyer.controllers;
 
-import com.example.gestionfoyer.entities.Foyer;
 import com.example.gestionfoyer.entities.Universite;
 import com.example.gestionfoyer.services.IUniversiteService;
 import lombok.AllArgsConstructor;
@@ -12,7 +11,7 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/universite")
-public class UniversiteController {
+public class UniversiteRestController {
 
     @Autowired
     private IUniversiteService universiteService;
@@ -43,4 +42,25 @@ public class UniversiteController {
         Universite universite = universiteService.modifyUniversite(u);
         return universite;
     }
+
+    @PostMapping("/affecterFoyer/{idFoyer}/{nomUniversite}")
+    public Universite affecterFoyerAUniversite(
+            @PathVariable("idFoyer") Long idFoyer,
+            @PathVariable("nomUniversite") String nomUniversite
+    )
+    {
+        Universite universite = universiteService
+                .affecterFoyerAUniversite(idFoyer, nomUniversite);
+        return  universite;
+    }
+
+    @PutMapping("/desaffecterFoyer/{universite-id}")
+    public Universite desaffecterFoyerAUniversite(
+            @PathVariable("universite-id") long universiteId
+    ) {
+        Universite universite =  universiteService
+                .desaffecterFoyerAUniversite(universiteId);
+        return universite;
+    }
+
 }

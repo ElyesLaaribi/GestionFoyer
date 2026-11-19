@@ -1,5 +1,6 @@
 package com.example.gestionfoyer.entities;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.persistence.*;
 import lombok.*;
 

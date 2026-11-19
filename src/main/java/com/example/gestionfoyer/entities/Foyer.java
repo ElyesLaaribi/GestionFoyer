@@ -1,5 +1,6 @@
 package com.example.gestionfoyer.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,6 +20,7 @@ public class Foyer implements Serializable {
     private String nomFoyer;
     private Long capaciteFoyer;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "foyer")
     private Universite universite;
 
