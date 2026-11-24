@@ -12,4 +12,5 @@ public interface IFoyerService {
     public Foyer addFoyer(Foyer f);
     public void removeFoyer(Long FoyerId);
     public Foyer modifyFoyer(Foyer foyer);
+    public Foyer ajouterFoyerEtAffecterAUniversite(Foyer foyer, Long idUniversite);
 }
